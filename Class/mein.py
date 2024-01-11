@@ -13,9 +13,15 @@ class Pierwiastek:
 Tytan = Pierwiastek("tytan", 48, 22)
 Cyrkon = Pierwiastek("cyrkon", 91, 40)
 German = Pierwiastek("german", 73, 32)
+Azot = Pierwiastek("azot", 14, 7)
+Tlen = Pierwiastek("tlen", 16, 8)
+Wodor = Pierwiastek("wodor", 1, 1)
 Tytan.wyswietl_info()
 Cyrkon.wyswietl_info()
 German.wyswietl_info()
+Azot.wyswietl_info()
+Tlen.wyswietl_info()
+Wodor.wyswietl_info()
 
 
 # class Człowiek:
