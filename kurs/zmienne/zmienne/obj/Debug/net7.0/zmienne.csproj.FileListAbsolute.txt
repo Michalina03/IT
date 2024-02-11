@@ -1,0 +1,14 @@
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\zmienne.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\zmienne.AssemblyInfoInputs.cache
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\zmienne.AssemblyInfo.cs
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\zmienne.csproj.CoreCompileInputs.cache
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\bin\Debug\net7.0\zmienne.exe
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\bin\Debug\net7.0\zmienne.deps.json
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\bin\Debug\net7.0\zmienne.runtimeconfig.json
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\bin\Debug\net7.0\zmienne.dll
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\bin\Debug\net7.0\zmienne.pdb
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\zmienne.dll
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\refint\zmienne.dll
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\zmienne.pdb
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\zmienne.genruntimeconfig.cache
+C:\Users\Mieka\Desktop\programowanie\kurs\zmienne\zmienne\obj\Debug\net7.0\ref\zmienne.dll

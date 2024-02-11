@@ -1,0 +1,41 @@
+.btn {
+  position: relative;
+  padding: 7px 15px;
+  color: ffffff;
+  background-color: floralwhite;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  width: 15%;
+  height: 100%;
+  background-color: rgb(92, 187, 224);
+  transform: translateY(120%);
+  z-index: -1;
+}
+
+.one {
+  left: 0;
+}
+.two {
+  left: 20%;
+}
+.three {
+  left: 40%;
+}
+.four {
+  left: 60%;
+}
+.five {
+  left: 80%;
+}
+.btn:hover .bar {
+  transform: translateY(0);
+  scale: 1.8;
+}

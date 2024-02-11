@@ -1,0 +1,14 @@
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\if , debagowanie.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\if , debagowanie.AssemblyInfoInputs.cache
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\if , debagowanie.AssemblyInfo.cs
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\if , debagowanie.csproj.CoreCompileInputs.cache
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\bin\Debug\net7.0\if , debagowanie.exe
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\bin\Debug\net7.0\if , debagowanie.deps.json
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\bin\Debug\net7.0\if , debagowanie.runtimeconfig.json
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\bin\Debug\net7.0\if , debagowanie.dll
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\bin\Debug\net7.0\if , debagowanie.pdb
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\if , debagowanie.dll
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\refint\if , debagowanie.dll
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\if , debagowanie.pdb
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\if , debagowanie.genruntimeconfig.cache
+C:\Users\Mieka\Desktop\programowanie\kurs\if , debagowanie\if , debagowanie\obj\Debug\net7.0\ref\if , debagowanie.dll
