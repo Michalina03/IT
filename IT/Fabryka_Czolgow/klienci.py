@@ -1,5 +1,7 @@
 class Klient:
-    def __init__(self ,ilość_kupionych:int=None ,rodzaj_klienta:str=None ,kwota:int=None) -> None:
+    def __init__(
+        self, ilość_kupionych: int = None, rodzaj_klienta: str = None, kwota: int = None
+    ) -> None:
         self.ilość_kupionych = ilość_kupionych
         self.rodzaj_klienta = rodzaj_klienta
         self.kwota = kwota
@@ -18,6 +20,7 @@ class Klient:
         print(f"Klient: {self.rodzaj_klienta}")
         print(f"Wartość zakupu: {self.kwota}")
 
+
 class Klienci:
     lista_klientow = []
     liczba_klientow = 0
@@ -33,6 +36,7 @@ class Klienci:
     def stwórz_klienta(cls, rodzaj_klienta, ilość_kupionych, kwota):
         cls.liczba_klientow += 1
         cls.lista_klientow.append(Klient(ilość_kupionych, rodzaj_klienta, kwota))
+
 
 Klienci.stwórz_klienta("państwowy", 100, 1000000)
 Klienci.stwórz_klienta("prywatny", 20, 200000)
