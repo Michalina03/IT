@@ -17,8 +17,7 @@ class Pracownik:
         self.doswiadczenie = nowe_doswiadczenie
 
     def zmien_nazwisko(self, nowe_nazwisko):
-       self.nazwisko = nowe_nazwisko
-    
+        self.nazwisko = nowe_nazwisko
 
     def opis(self):
         print(f"Imię: {self.imie}")
@@ -28,24 +27,35 @@ class Pracownik:
         print(f"Doświadczenie: {self.doswiadczenie}")
         print(f"Podgrupa: {self.podgrupa}")
 
-# Pracownik Montazu jako komponent
+
 class Pracownik_Montazu:
     def __init__(self, imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa):
-        self.pracownik = Pracownik(imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa)
+        self.pracownik = Pracownik(
+            imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa
+        )
+
 
 class Pracownik_IT:
     def __init__(self, imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa):
-       self.pracownik = Pracownik(imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa)
+        self.pracownik = Pracownik(
+            imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa
+        )
+
 
 class Pracownik_Organizacji_Pracy:
     def __init__(self, imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa):
-       self.pracownik = Pracownik(imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa)
+        self.pracownik = Pracownik(
+            imie, nazwisko, pensja, ocena_pracy, doswiadczenie, podgrupa
+        )
+
 
 prac_montazu = Pracownik_Montazu("Robert", "Kowalski", 3500, 4, 3, "Monter")
 prac_montazu.pracownik.zmien_pensje(5000)
 prac_IT = Pracownik_IT("Maciej", "Nowak", 4000, 5, 4, "programista")
 prac_IT.pracownik.zmien_ocene_pracy(3)
-prac_organizacji_pracy = Pracownik_Organizacji_Pracy("Kuba", "Wójcicki", 6000, 3, 2, "mechanik")
+prac_organizacji_pracy = Pracownik_Organizacji_Pracy(
+    "Kuba", "Wójcicki", 6000, 3, 2, "mechanik"
+)
 prac_organizacji_pracy.pracownik.zmien_nazwisko("Musiał")
 
 print(prac_montazu.pracownik.imie)
