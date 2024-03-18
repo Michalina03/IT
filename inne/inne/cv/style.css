@@ -1,0 +1,145 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #f5f7fc;
+}
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 6px 6px 20px 0px rgba(0, 0, 0, 0.1);
+}
+aside {
+  width: 370px;
+  background: #1e2939;
+}
+.cv-photo {
+  margin: 25px 0 0 0;
+}
+.header-secendary {
+  color: #fff;
+}
+.contacts-links {
+  font-style: normal;
+  line-height: 24px;
+  color: #fff;
+}
+.bold {
+  font-weight: 700;
+}
+.list-secondary {
+  color: #fb6d3a;
+  line-height: 24px;
+  font-size: 14px;
+  margin-left: 0;
+  padding-left: 0;
+  list-style-position: inside;
+}
+.list-secondary-item {
+  color: #fff;
+}
+.contacts-block {
+  margin-top: 51px;
+  margin-left: 40px;
+}
+.tech-skils-block {
+  margin-top: 47px;
+  margin-left: 40px;
+}
+.soft-skils-block {
+  margin-top: 47px;
+  margin-left: 40px;
+}
+main {
+  padding: 102px 88px 102px 88px;
+}
+.main-description {
+  width: 400px;
+  margin-bottom: 40px;
+}
+.job-title {
+  font-weight: 700;
+  line-height: normal;
+  font-size: 14px;
+}
+h1 {
+  font-weight: 700;
+  line-height: normal;
+  font-size: 45px;
+}
+.description {
+  font-weight: 400;
+  line-height: 24px;
+  font-size: 14px;
+}
+.projects {
+  width: 485px;
+  margin-bottom: 51px;
+}
+.list-primary {
+  font-weight: 700;
+  line-height: 24px;
+  font-size: 14px;
+  padding-left: 0;
+  list-style-position: inside;
+}
+.list-primary-item {
+  font-weight: 400;
+  line-height: 24px;
+  font-size: 14px;
+  color: #595959;
+  text-decoration: none;
+}
+.header-primary {
+  font-weight: 700;
+  line-height: normal;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+.job-position {
+  font-weight: 700;
+  line-height: normal;
+  font-size: 16px;
+}
+.highlight {
+  color: #fb6d3a;
+}
+.job-date {
+  color: #a8a8a8;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+}
+.job-list {
+  font-weight: 400;
+  line-height: 24px;
+  color: #595959;
+  font-size: 14px;
+}
+.n {
+  font-weight: 700;
+  line-height: normal;
+  color: #fb6d3a;
+  font-size: 16px;
+}
+.e {
+  font-weight: 700;
+  line-height: normal;
+  color: #000;
+  font-size: 22px;
+  margin-top: 43px;
+}
+h4 {
+  font-weight: 700;
+  line-height: normal;
+  color: #000;
+  font-size: 14px;
+}
+.p {
+  font-weight: 400;
+  line-height: normal;
+  color: #a8a8a8;
+  font-size: 12px;
+}
