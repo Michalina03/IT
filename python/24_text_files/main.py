@@ -172,3 +172,35 @@ def linijka_po_linijce(sciezka_do_pliku):
 
 
 linijka_po_linijce("xxx.txt")
+
+
+# -----------KOD GENERUJĄCY TABELKE MNOŻENIA ---------------------
+def generate_multiplication_table(n):
+    table = ""
+
+    table += "   "
+    for i in range(1, n + 1):
+        table += f"{i:4}"
+    table += "\n"
+
+    for i in range(1, n + 1):
+        table += f"{i:2}"
+        for j in range(1, n + 1):
+            result = i * j
+            table += f"{result:4}"
+        table += "\n"
+    return table
+
+
+table_size = 10
+
+multiplication_table = generate_multiplication_table(table_size)
+
+file_name = "tabliczka_mnozenia.txt"
+
+try:
+    with open(file_name, "w") as file:
+        file.write(multiplication_table)
+    print("Plik został pomyślnie wygenerowany.")
+except Exception as e:
+    print("Wystąpił błąd podczas generowania pliku:", str(e))
