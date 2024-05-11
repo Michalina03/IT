@@ -1,8 +1,8 @@
 from characters.basic_character import BasicCharacter
-from characters.magic_sword.magic_sword import MagicSword
+from characters.quick_blade.quick_blade import QuickBlade
 
 
-class Warrior(BasicCharacter):
+class Gunslinger(BasicCharacter):
     def __init__(self) -> None:
         super().__init__()
         self._basic_attack += 10
@@ -13,7 +13,7 @@ class Warrior(BasicCharacter):
         self._mana = 500
         self._mana_regeneration = 5
         # --------------------------
-        self._spell_book = MagicSword()
+        self._spell_book = QuickBlade()
         self._equipment = []
 
     def inf(self):
@@ -28,7 +28,7 @@ class Warrior(BasicCharacter):
         while True:
             self.inf()
             print("a - basic_attack")
-            print("b - open MagicSword")
+            print("b - open QuickBlade")
             damage = 0
             inp = input().lower()
             if inp == "a":
@@ -37,9 +37,3 @@ class Warrior(BasicCharacter):
                 return self._spell_book.choose_spell(self)
             else:
                 print("there is no such attack")
-
-
-# If you want to create a Mage in this file to test it or add new functions
-# from basic_character import BasicCharacter
-# from elemental_magic_book.elemental_magic_book import ElemnetalSpellBook
-# m1 = Mage()

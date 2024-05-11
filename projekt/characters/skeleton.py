@@ -13,7 +13,7 @@ class Skeleton(BasicCharacter):
 
     def faight(self):
         print("==" * 10)
-        print("Evil skeleton !!!")
+        print("--------- Watch out for skeletons !!! ---------")
         super().print_basic_statistic()
         return self.basic_attack
 

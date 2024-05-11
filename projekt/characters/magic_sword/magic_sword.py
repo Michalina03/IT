@@ -21,7 +21,7 @@ class MagicSword:
             character._mana -= 50
             return randint(1, 500)
         else:
-            print("There wasn't enough mana to complete the spell")
+            print("There wasn't enough mana to complete the attack")
             return 0
 
     def airon_storm(self, chatacter):
@@ -34,12 +34,12 @@ class MagicSword:
     def choose_spell(self, character):
         while True:
             try:
-                print(f"a \t Fire Ball available? {self._unlocked_astral_slash}")
-                print(f"b \t Lighting available? {self._unlocked_elemental_strike}")
+                print(f"a \t Astral slash available? {self._unlocked_astral_slash}")
                 print(
-                    f"c \t Elemental Annihilation available? {self._unlocked_airon_storm}"
+                    f"b \t Elemental strike available? {self._unlocked_elemental_strike}"
                 )
-                print(f"e \t Close the book")
+                print(f"c \t Airon storm available? {self._unlocked_airon_storm}")
+                print(f"e \t Close the sword")
                 inp = input().lower()
                 if inp == "a" and self._unlocked_astral_slash:
                     return self.astral_slash(character)
@@ -48,10 +48,10 @@ class MagicSword:
                 elif inp == "c" and self._unlocked_airon_storm:
                     return self.airon_storm(character)
                 elif inp == "e":
-                    print("Close the book")
+                    print("Close the sword")
                     break
                 else:
-                    print("This spell has not been unlocked yet or does not exist.")
+                    print("This attack has not been unlocked yet or does not exist.")
             except Exception as e:
                 print(f"An error occurred: {e}")
 
@@ -59,14 +59,16 @@ class MagicSword:
     def unlock_spels(self, character):
         while True:
             try:
-                print(f"a -1000\t Fire Ball available? {self._unlocked_astral_slash}")
                 print(
-                    f"b -5000g \t Lighting available? {self._unlocked_elemental_strike}"
+                    f"a -1000 gold\t Astral slash available? {self._unlocked_astral_slash}"
                 )
                 print(
-                    f"c -10000g \t Elemental Annihilation available? {self._unlocked_airon_storm}"
+                    f"b -5000 gold \t Elemental strike available? {self._unlocked_elemental_strike}"
                 )
-                print(f"e \t Close the book")
+                print(
+                    f"c -10000 gold \t Airon storm available? {self._unlocked_airon_storm}"
+                )
+                print(f"e \t Close the sword")
                 inp = input().lower()
                 if (
                     inp == "a"
@@ -91,7 +93,7 @@ class MagicSword:
                     break
                 else:
                     if inp in ["a", "b", "c"]:
-                        print("Not enough gold or you know this spell.")
+                        print("Not enough gold or you know this attack.")
                     else:
                         print("This option do not exist.")
             except Exception as e:

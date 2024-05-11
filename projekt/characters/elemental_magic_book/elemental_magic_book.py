@@ -37,7 +37,7 @@ class ElemnetalSpellBook:
                 print(f"a \t Fire Ball available? {self._unlocked_fire_ball}")
                 print(f"b \t Lighting available? {self._unlocked_lighting}")
                 print(
-                    f"c \t Elemental Annihilation available? {self._unlocked_elemental_annihilation}"
+                    f"c \t Elemental annihilation available? {self._unlocked_elemental_annihilation}"
                 )
                 print(f"e \t Close the book")
                 inp = input().lower()
@@ -59,10 +59,10 @@ class ElemnetalSpellBook:
     def unlock_spels(self, character):
         while True:
             try:
-                print(f"a -1000\t Fire Ball available? {self._unlocked_fire_ball}")
-                print(f"b -5000g \t Lighting available? {self._unlocked_lighting}")
+                print(f"a -1000 gold\t Fire Ball available? {self._unlocked_fire_ball}")
+                print(f"b -5000 gold \t Lighting available? {self._unlocked_lighting}")
                 print(
-                    f"c -10000g \t Elemental Annihilation available? {self._unlocked_elemental_annihilation}"
+                    f"c -10000 gold \t Elemental annihilation available? {self._unlocked_elemental_annihilation}"
                 )
                 print(f"e \t Close the book")
                 inp = input().lower()
