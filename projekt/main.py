@@ -8,6 +8,7 @@ from characters.skeleton import Skeleton
 from characters.revenant import Revenant
 from characters.witch import Witch
 from characters.ghost import Ghost
+from city.mage_shop import MageShop
 import os
 
 # =======================================================================
@@ -27,8 +28,10 @@ def one_on_one_fight(hero: Mage | Warrior | Ninja | Tracker | Gunslinger, enemy)
     opponent.regeneration()
     hero.regeneration()
     while hero.is_alive() and opponent.is_alive():
+        os.system("cls" if os.name == "nt" else "clear")
         hero.reduce_hp(opponent.faight())
         opponent.reduce_hp(hero.faight())
+
     if not (hero.is_alive()):
         print("you gave your all today !!!")
         return None
@@ -55,15 +58,20 @@ def main_game():
     elif inp == "e":
         my_hero = Gunslinger()
 
+    if isinstance(my_hero, Mage):
+        shop = MageShop()
+
+    day = 1
+
     while my_hero.is_alive():
-        day = 1
-        os.system("clear")
+        os.system("cls" if os.name == "nt" else "clear")
         print(f"======================DAY: {day}============================")
         print("a - go to the dark forest")
         print("b - go to the dark castle")
         print("c - go to the dark cosmos")
         print("d - go to the dark caves")
         print("e - go to the haunted house")
+        print("f - city")
         print("r - rest")
         print("x - exsit")
         my_hero.inf()
@@ -72,8 +80,11 @@ def main_game():
         inp = input().lower()
         if "a" == inp or "b" == inp or "c" == inp or "d" == inp or "e" == inp:
             one_on_one_fight(my_hero, inp)
+        elif "f" == inp:
+            shop.choose_modification(my_hero)
         elif "r" == inp:
             my_hero.total_rest()
+            day += 1
         elif "x" == inp:
             print("the program has ended")
         else:
