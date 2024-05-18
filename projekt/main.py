@@ -13,6 +13,7 @@ from city.warrior_shop import WarriorShop
 from city.ninja_shop import NinjaShop
 from city.tracker_shop import TrackerShop
 from city.guslinger_shop import GuslingerShop
+from game_events.boss import Boss
 import os
 
 # =======================================================================
@@ -42,7 +43,21 @@ def one_on_one_fight(hero: Mage | Warrior | Ninja | Tracker | Gunslinger, enemy)
     hero.add_gold(opponent.drop())
 
 
-def main_game():
+def game_events(hero, opponent):
+    opponent.regeneration()
+    hero.regeneration()
+    while hero.is_alive() and opponent.is_alive():
+        os.system("cls" if os.name == "nt" else "clear")
+        hero.reduce_hp(opponent.faight())
+        opponent.reduce_hp(hero.faight())
+
+    if not (hero.is_alive()):
+        print("you gave your all today !!!")
+        return None
+    hero.add_gold(opponent.drop())
+
+
+def chose_class():
     print("Select a Character Class")
     print("a - magician ")  # hp: 100 mana: 500
     print("b - warrior")  # hp: 125 mana: 700
@@ -61,7 +76,10 @@ def main_game():
         my_hero = Tracker()
     elif inp == "e":
         my_hero = Gunslinger()
+    return my_hero
 
+
+def chose_shop(my_hero):
     if isinstance(my_hero, Mage):
         shop = MageShop()
     elif isinstance(my_hero, Warrior):
@@ -72,9 +90,15 @@ def main_game():
         shop = TrackerShop()
     elif isinstance(my_hero, Gunslinger):
         shop = GuslingerShop()
+    return shop
 
+
+def main_game():
+
+    my_hero = chose_class()
+    shop = chose_shop(my_hero)
     day = 1
-
+    opponent = Boss()
     while my_hero.is_alive():
         os.system("cls" if os.name == "nt" else "clear")
         print(f"======================DAY: {day}============================")
@@ -94,6 +118,8 @@ def main_game():
             "e - go to the haunted house"
         )  # ghost: hp: 200 mana: 160 drop: 200-400 attack: 40-100
         print("f - city")
+        print("g - level up!")
+        print("h - boss !!!")
         print("r - rest")
         print("x - exsit")
         my_hero.inf()
@@ -107,6 +133,14 @@ def main_game():
         elif "r" == inp:
             my_hero.total_rest()
             day += 1
+        elif "g" == inp:
+            if my_hero._gold >= 10000:
+                my_hero = chose_class()
+                shop = chose_shop(my_hero)
+            else:
+                print("Not enought gold ")
+        elif "h" == inp:
+            game_events(my_hero, opponent)
         elif "x" == inp:
             print("------ The program has ended ------")
         else:

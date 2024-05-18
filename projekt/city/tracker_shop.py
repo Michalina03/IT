@@ -15,7 +15,9 @@ class TrackerShop(BasicShop):
                 print(f"a \t Add health ? | - 100 gold | + {self.add_health} hp")
                 print(f"b \t Add mana ? | - 150 gold | + {self.add_mana} mana")
                 print(f"c \t Add spell")
-                print(f"e \t Quit the shop")
+                print(f"d \t Add mana potion | - 200 gold | + 100 hp | ")
+                print(f"e \t Add health potion | - 200 gold | + 100 hp |")
+                print(f"x \t Quit the shop")
                 inp = input().lower()
                 if inp == "a" and character._gold > 100:
                     character._gold -= 100
@@ -26,7 +28,13 @@ class TrackerShop(BasicShop):
                     character._max_mana += self.add_mana
                 elif inp == "c":
                     character._spell_book.unlock_spels(character)
-                elif inp == "e":
+                elif inp == "d" and character._gold > 200:
+                    character._gold -= 200
+                    character._mana_potion += 1
+                elif inp == "e" and character._gold > 200:
+                    character._gold -= 200
+                    character._health_potion += 1
+                elif inp == "x":
                     print("Quit the shop")
                     break
                 else:

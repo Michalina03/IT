@@ -1,7 +1,7 @@
 class BasicCharacter:
     def __init__(self) -> None:
         self._is_alive = True
-        self._gold = 100
+        self._gold = 100000
         self._basic_attack = 0
         self._max_hp = 0
         self._hp = 0

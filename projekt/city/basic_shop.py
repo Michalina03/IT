@@ -9,7 +9,9 @@ class BasicShop:
             try:
                 print(f"a \t Add health ? {self.add_health}")
                 print(f"b \t Add mana ? {self.add_mana}")
-                print(f"e \t Quit the shop")
+                print(f"d \t Add mana potion ")
+                print(f"e \t Add health potion ")
+                print(f"x \t Quit the shop")
                 inp = input().lower()
                 if inp == "a" and character._gold > 100:
                     character._gold -= 100
@@ -18,7 +20,13 @@ class BasicShop:
                 elif inp == "b" and character._gold > 100:
                     character._gold -= 100
                     character._max_mana += self.add_mana
-                elif inp == "e":
+                elif inp == "d" and character._gold > 200:
+                    character._gold -= 200
+                    character._mana_potion += 1
+                elif inp == "e" and character._gold > 200:
+                    character._gold -= 200
+                    character._health_potion += 1
+                elif inp == "x":
                     print("Quit the shop")
                     break
                 else:
