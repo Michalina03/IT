@@ -9,17 +9,17 @@ class TrapersKit:
         self._unlocked_shadow_camouflage = False
 
     def stealth_mastery(self, character):
-        if character._mana >= 20:
-            character._mana -= 20
-            return 200
+        if character._mana >= 200:
+            character._mana -= 200
+            return 100
         else:
             print("There wasn't enough mana to complete the power")
             return 0
 
     def deadly_accuracy(self, character):
-        if character._mana >= 100:
-            character._mana -= 100
-            return randint(1, 1000)
+        if character._mana >= 250:
+            character._mana -= 250
+            return randint(130, 200)
         else:
             print("There wasn't enough mana to complete the power")
             return 0
@@ -64,13 +64,13 @@ class TrapersKit:
         while True:
             try:
                 print(
-                    f"a -1000 gold \t Stealth mastery available? {self._unlocked_stealth_mastery}"
+                    f"a) free spell! \t Stealth mastery available? | - 200 mana | you deal - 100 hp | {self._unlocked_stealth_mastery}"
                 )
                 print(
-                    f"b -5000 gold \t Deadly accuracy available? {self._unlocked_deadly_accuracy}"
+                    f"b) -900 gold \t Deadly accuracy available? | - 250 mana | you deal from - 130 to - 200 hp | {self._unlocked_deadly_accuracy}"
                 )
                 print(
-                    f"c -10000 gold \t Shadow camouflage available? {self._unlocked_shadow_camouflage}"
+                    f"c) - 1500 gold \t Shadow camouflage available? | - 200 mana | you deal - 100 hp | {self._unlocked_shadow_camouflage}"
                 )
                 print(f"e \t Close the kit")
                 inp = input().lower()
@@ -83,13 +83,13 @@ class TrapersKit:
                 elif (
                     inp == "b"
                     and not self._unlocked_deadly_accuracy
-                    and character._gold >= 5000
+                    and character._gold >= 900
                 ):
                     self._unlocked_deadly_accuracy = True
                 elif (
                     inp == "c"
                     and not self._unlocked_shadow_camouflage
-                    and character._gold >= 10000
+                    and character._gold >= 1500
                 ):
                     self._unlocked_shadow_camouflage = True
                 elif inp == "e":

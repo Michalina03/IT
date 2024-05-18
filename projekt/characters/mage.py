@@ -27,7 +27,7 @@ class Mage(BasicCharacter):
     def faight(self):
         while True:
             self.inf()
-            print("a - basic_attack")
+            print("a - basic_attack ( - 10 hp )")
             print("b - open ElemnetalSpellBook")
             damage = 0
             inp = input().lower()

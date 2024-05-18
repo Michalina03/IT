@@ -6,11 +6,11 @@ class Warrior(BasicCharacter):
     def __init__(self) -> None:
         super().__init__()
         self._basic_attack += 10
-        self._max_hp = 100
-        self._hp = 100
+        self._max_hp = 125
+        self._hp = 125
         self._hp_regeneration = 1
-        self._max_mana = 500
-        self._mana = 500
+        self._max_mana = 700
+        self._mana = 700
         self._mana_regeneration = 5
         # --------------------------
         self._spell_book = MagicSword()
@@ -27,7 +27,7 @@ class Warrior(BasicCharacter):
     def faight(self):
         while True:
             self.inf()
-            print("a - basic_attack")
+            print("a - basic_attack ( - 10 hp )")
             print("b - open MagicSword")
             damage = 0
             inp = input().lower()

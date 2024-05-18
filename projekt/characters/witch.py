@@ -5,11 +5,11 @@ from random import randint
 class Witch(BasicCharacter):
     def __init__(self) -> None:
         super().__init__()
-        self.basic_attack = randint(1, 10)
-        self._max_hp = 95
-        self._hp = 95
-        self._max_mana = 55
-        self._mana = 55
+        self.basic_attack = randint(20, 40)
+        self._max_hp = 150
+        self._hp = 150
+        self._max_mana = 100
+        self._mana = 95
 
     def faight(self):
         print("==" * 10)
@@ -18,4 +18,4 @@ class Witch(BasicCharacter):
         return self.basic_attack
 
     def drop(self):
-        return randint(10, 50)
+        return randint(100, 200)

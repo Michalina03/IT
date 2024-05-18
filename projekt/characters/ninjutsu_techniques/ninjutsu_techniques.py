@@ -9,17 +9,17 @@ class NinjutsuTechniques:
         self._unlocked_serpent_sting = False
 
     def mistral_strike(self, character):
-        if character._mana >= 25:
-            character._mana -= 25
-            return 250
+        if character._mana >= 150:
+            character._mana -= 150
+            return 60
         else:
             print("There wasn't enough mana to complete the attack")
             return 0
 
     def shadow_dance(self, character):
-        if character._mana >= 90:
-            character._mana -= 90
-            return randint(1, 900)
+        if character._mana >= 200:
+            character._mana -= 200
+            return randint(90, 150)
         else:
             print("There wasn't enough mana to complete the attack")
             return 0
@@ -58,13 +58,13 @@ class NinjutsuTechniques:
         while True:
             try:
                 print(
-                    f"a -1000 gold\t Mistral strike available? {self._unlocked_mistral_strike}"
+                    f"a) free spell! \t Mistral strike available? | - 150 mana | you deal - 60 hp | {self._unlocked_mistral_strike}"
                 )
                 print(
-                    f"b -5000 gold \t Shadow dance available? {self._unlocked_shadow_dance}"
+                    f"b) -500 gold \t Shadow dance available? | - 200 mana | you deal from - 90 to - 150 hp | {self._unlocked_shadow_dance}"
                 )
                 print(
-                    f"c -10000 gold \t Serpent sting available? {self._unlocked_serpent_sting}"
+                    f"c) -800 gold \t Serpent sting available? | - . mana | you deal - . hp | {self._unlocked_serpent_sting}"
                 )
                 print(f"e \t Close the techniques")
                 inp = input().lower()
@@ -77,13 +77,13 @@ class NinjutsuTechniques:
                 elif (
                     inp == "b"
                     and not self._unlocked_shadow_dance
-                    and character._gold >= 5000
+                    and character._gold >= 500
                 ):
                     self._unlocked_shadow_dance = True
                 elif (
                     inp == "c"
                     and not self._unlocked_serpent_sting
-                    and character._gold >= 10000
+                    and character._gold >= 800
                 ):
                     self._unlocked_serpent_sting = True
                 elif inp == "e":

@@ -9,17 +9,17 @@ class MagicSword:
         self._unlocked_airon_storm = False
 
     def astral_slash(self, character):
-        if character._mana >= 10:
-            character._mana -= 10
-            return 300
+        if character._mana >= 70:
+            character._mana -= 70
+            return 30
         else:
             print("There wasn't enough mana to complete the attack")
             return 0
 
     def elemental_strike(self, character):
-        if character._mana >= 50:
-            character._mana -= 50
-            return randint(1, 500)
+        if character._mana >= 100:
+            character._mana -= 100
+            return randint(50, 90)
         else:
             print("There wasn't enough mana to complete the attack")
             return 0
@@ -60,32 +60,32 @@ class MagicSword:
         while True:
             try:
                 print(
-                    f"a -1000 gold\t Astral slash available? {self._unlocked_astral_slash}"
+                    f"a) free spell! \t Astral slash available? | - 70 mana | you deal - 30 hp | {self._unlocked_astral_slash}"
                 )
                 print(
-                    f"b -5000 gold \t Elemental strike available? {self._unlocked_elemental_strike}"
+                    f"b) -300 gold \t Elemental strike available? | - 100 mana | you deal from - 50 to - 90 hp | {self._unlocked_elemental_strike}"
                 )
                 print(
-                    f"c -10000 gold \t Airon storm available? {self._unlocked_airon_storm}"
+                    f"c) -500 gold \t Airon storm available? | - . mana | you deal - . hp | {self._unlocked_airon_storm}"
                 )
                 print(f"e \t Close the sword")
                 inp = input().lower()
                 if (
                     inp == "a"
                     and not self._unlocked_astral_slash
-                    and character._gold >= 1000
+                    and character._gold >= 300
                 ):
                     self._unlocked_astral_slash = True
                 elif (
                     inp == "b"
                     and not self._unlocked_elemental_strike
-                    and character._gold >= 5000
+                    and character._gold >= 300
                 ):
                     self._unlocked_elemental_strike = True
                 elif (
                     inp == "c"
                     and not self._unlocked_airon_storm
-                    and character._gold >= 10000
+                    and character._gold >= 500
                 ):
                     self._unlocked_airon_storm = True
                 elif inp == "e":

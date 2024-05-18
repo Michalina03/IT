@@ -9,17 +9,17 @@ class QuickBlade:
         self._unlocked_deadly_aim = False
 
     def bullet_storm(self, character):
-        if character._mana >= 30:
-            character._mana -= 30
-            return 400
+        if character._mana >= 300:
+            character._mana -= 300
+            return 150
         else:
             print("There wasn't enough mana to complete the power")
             return 0
 
     def kill_zone(self, character):
-        if character._mana >= 110:
-            character._mana -= 110
-            return randint(1, 1100)
+        if character._mana >= 400:
+            character._mana -= 400
+            return randint(150, 300)
         else:
             print("There wasn't enough mana to complete the power")
             return 0
@@ -58,32 +58,32 @@ class QuickBlade:
         while True:
             try:
                 print(
-                    f"a -1000 gold \t Bullet storm available? {self._unlocked_bullet_storm}"
+                    f"a) free spell! \t Bullet storm available? | - 300 mana | you deal - 150 hp | {self._unlocked_bullet_storm}"
                 )
                 print(
-                    f"b -5000 gold \t Kill zone available? {self._unlocked_kill_zone}"
+                    f"b) - 1500 gold \t Kill zone available? | - 400 mana | you deal from - 150 to - 300 hp | {self._unlocked_kill_zone}"
                 )
                 print(
-                    f"c -10000 gold \t Deadly aim available? {self._unlocked_deadly_aim}"
+                    f"c -2000 gold \t Deadly aim available?  | - 300 mana | you deal - 150 hp | {self._unlocked_deadly_aim}"
                 )
                 print(f"e \t Close the blade")
                 inp = input().lower()
                 if (
                     inp == "a"
                     and not self._unlocked_bullet_storm
-                    and character._gold >= 1000
+                    and character._gold >= 1200
                 ):
                     self._unlocked_bullet_storm = True
                 elif (
                     inp == "b"
                     and not self._unlocked_kill_zone
-                    and character._gold >= 5000
+                    and character._gold >= 1500
                 ):
                     self._unlocked_kill_zone = True
                 elif (
                     inp == "c"
                     and not self._unlocked_deadly_aim
-                    and character._gold >= 10000
+                    and character._gold >= 2000
                 ):
                     self._unlocked_deadly_aim = True
                 elif inp == "e":

@@ -9,17 +9,17 @@ class ElemnetalSpellBook:
         self._unlocked_elemental_annihilation = False
 
     def fire_ball(self, character):
-        if character._mana >= 20:
-            character._mana -= 20
-            return 200
+        if character._mana >= 40:
+            character._mana -= 40
+            return 20
         else:
             print("There wasn't enough mana to complete the spell")
             return 0
 
     def lighting(self, character):
-        if character._mana >= 100:
-            character._mana -= 100
-            return randint(1, 1000)
+        if character._mana >= 70:
+            character._mana -= 70
+            return randint(30, 70)
         else:
             print("There wasn't enough mana to complete the spell")
             return 0
@@ -55,33 +55,37 @@ class ElemnetalSpellBook:
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-    # ready for use by you, my dears ;)
+    # ready for use by you, my dears ;
     def unlock_spels(self, character):
         while True:
             try:
-                print(f"a -1000 gold\t Fire Ball available? {self._unlocked_fire_ball}")
-                print(f"b -5000 gold \t Lighting available? {self._unlocked_lighting}")
                 print(
-                    f"c -10000 gold \t Elemental annihilation available? {self._unlocked_elemental_annihilation}"
+                    f"a) free spell! \t Fire Ball available? | - 40 mana | you deal - 20 hp | {self._unlocked_fire_ball}"
+                )
+                print(
+                    f"b) -200 gold \t Lighting available? | - 70 mana | you deal from -30 to -70 hp | {self._unlocked_lighting}"
+                )
+                print(
+                    f"c) -400 gold \t Elemental annihilation available?  | - . mana | you deal . | {self._unlocked_elemental_annihilation}"
                 )
                 print(f"e \t Close the book")
                 inp = input().lower()
                 if (
                     inp == "a"
                     and not self._unlocked_fire_ball
-                    and character._gold >= 1000
+                    and character._gold >= 100
                 ):
                     self._unlocked_fire_ball = True
                 elif (
                     inp == "b"
                     and not self._unlocked_lighting
-                    and character._gold >= 5000
+                    and character._gold >= 200
                 ):
                     self._unlocked_lighting = True
                 elif (
                     inp == "c"
                     and not self._unlocked_elemental_annihilation
-                    and character._gold >= 10000
+                    and character._gold >= 400
                 ):
                     self._unlocked_elemental_annihilation = True
                 elif inp == "e":
