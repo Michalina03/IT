@@ -27,9 +27,9 @@ class BasicShop:
                     character._gold -= 200
                     character._health_potion += 1
                 elif inp == "x":
-                    print("Quit the shop")
+                    print("--- Quit the shop ---")
                     break
                 else:
-                    print("Not enought gold")
+                    print("--- Not enough gold ---")
             except Exception as e:
                 print(f"An error occurred: {e}")

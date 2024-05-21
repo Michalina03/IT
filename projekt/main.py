@@ -30,6 +30,8 @@ def one_on_one_fight(hero: Mage | Warrior | Ninja | Tracker | Gunslinger, enemy)
         opponent = Witch()
     elif enemy == "e":
         opponent = Ghost()
+    elif enemy == "h":
+        opponent = Boss()
     opponent.regeneration()
     hero.regeneration()
     while hero.is_alive() and opponent.is_alive():
@@ -38,67 +40,59 @@ def one_on_one_fight(hero: Mage | Warrior | Ninja | Tracker | Gunslinger, enemy)
         opponent.reduce_hp(hero.faight())
 
     if not (hero.is_alive()):
-        print("you gave your all today !!!")
+        print("---- You gave your all today !!! ----")
         return None
     hero.add_gold(opponent.drop())
-
-
-def game_events(hero, opponent):
-    opponent.regeneration()
-    hero.regeneration()
-    while hero.is_alive() and opponent.is_alive():
-        os.system("cls" if os.name == "nt" else "clear")
-        hero.reduce_hp(opponent.faight())
-        opponent.reduce_hp(hero.faight())
-
-    if not (hero.is_alive()):
-        print("you gave your all today !!!")
-        return None
-    hero.add_gold(opponent.drop())
-
-
-def chose_class():
-    print("Select a Character Class")
-    print("a - magician ")  # hp: 100 mana: 500
-    print("b - warrior")  # hp: 125 mana: 700
-    print("c - ninja")  # hp: 150 mana: 1000
-    print("d - tracker")  # hp: 175 mana: 1250
-    print("e - gunslinger")  # hp: 200 mana: 1500
-
-    inp = input().lower()
-    if inp == "a":
-        my_hero = Mage()
-    elif inp == "b":
-        my_hero = Warrior()
-    elif inp == "c":
-        my_hero = Ninja()
-    elif inp == "d":
-        my_hero = Tracker()
-    elif inp == "e":
-        my_hero = Gunslinger()
-    return my_hero
 
 
 def chose_shop(my_hero):
-    if isinstance(my_hero, Mage):
-        shop = MageShop()
-    elif isinstance(my_hero, Warrior):
-        shop = WarriorShop()
-    if isinstance(my_hero, Ninja):
-        shop = NinjaShop()
-    elif isinstance(my_hero, Tracker):
-        shop = TrackerShop()
-    elif isinstance(my_hero, Gunslinger):
-        shop = GuslingerShop()
-    return shop
+    try:
+        if isinstance(my_hero, Mage):
+            shop = MageShop()
+        elif isinstance(my_hero, Warrior):
+            shop = WarriorShop()
+        elif isinstance(my_hero, Ninja):
+            shop = NinjaShop()
+        elif isinstance(my_hero, Tracker):
+            shop = TrackerShop()
+        elif isinstance(my_hero, Gunslinger):
+            shop = GuslingerShop()
+        return shop
+    except UnboundLocalError:
+        print("--- Check korekt option ---")
+
+
+def chose_class():
+    print("=====  Select a Character Class  =====")
+    print(" a - magician ")  # hp: 100 mana: 500
+    print(" b - warrior")  # hp: 125 mana: 700
+    print(" c - ninja")  # hp: 150 mana: 1000
+    print(" d - tracker")  # hp: 175 mana: 1250
+    print(" e - gunslinger")  # hp: 200 mana: 1500
+
+    inp = input().lower()
+    try:
+        if inp == "a":
+            my_hero = Mage()
+        elif inp == "b":
+            my_hero = Warrior()
+        elif inp == "c":
+            my_hero = Ninja()
+        elif inp == "d":
+            my_hero = Tracker()
+        elif inp == "e":
+            my_hero = Gunslinger()
+        return my_hero
+    except UnboundLocalError:
+        print("--- Check korekt option ---")
 
 
 def main_game():
-
     my_hero = chose_class()
+    if my_hero is None:
+        my_hero = chose_class()
     shop = chose_shop(my_hero)
     day = 1
-    opponent = Boss()
     while my_hero.is_alive():
         os.system("cls" if os.name == "nt" else "clear")
         print(f"======================DAY: {day}============================")
@@ -118,15 +112,22 @@ def main_game():
             "e - go to the haunted house"
         )  # ghost: hp: 200 mana: 160 drop: 200-400 attack: 40-100
         print("f - city")
-        print("g - level up!")
-        print("h - boss !!!")
+        print("g - level up! ( 10000 gold )")
+        print("h - BOSS !!! ")
         print("r - rest")
-        print("x - exsit")
+        print("x - exit")
         my_hero.inf()
         print("==" * 20)
 
         inp = input().lower()
-        if "a" == inp or "b" == inp or "c" == inp or "d" == inp or "e" == inp:
+        if (
+            "a" == inp
+            or "b" == inp
+            or "c" == inp
+            or "d" == inp
+            or "e" == inp
+            or "h" == inp
+        ):
             one_on_one_fight(my_hero, inp)
         elif "f" == inp:
             shop.choose_modification(my_hero)
@@ -135,16 +136,16 @@ def main_game():
             day += 1
         elif "g" == inp:
             if my_hero._gold >= 10000:
+                my_hero._gold -= 10000
                 my_hero = chose_class()
                 shop = chose_shop(my_hero)
             else:
-                print("Not enought gold ")
-        elif "h" == inp:
-            game_events(my_hero, opponent)
+                print("---- Not enough gold ----")
         elif "x" == inp:
             print("------ The program has ended ------")
+            my_hero.is_alive = False
         else:
-            print("There is no such command")
+            print("--- There is no such command ---")
 
 
 # =======================================================================
@@ -152,20 +153,33 @@ def main_game():
 
 if __name__ == "__main__":
     print("")
-    print("=-=-=-=-=-=-=-=-=-=  Welcome to Battle Masters.  =-=-=-=-=-=-=-=-=-=")
-    print("")
-    print("Choose better and better but more expensive characters.")
     print(
-        "Explore worlds where dangerous goblins and difficult to defeat ghosts await you."
+        "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  Welcome to Battle Masters.  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="
     )
     print(
-        "Kill monsters, get gold and go to the city where you can improve your character and buy powers for it."
+        "|                                                                                                        |"
     )
     print(
-        "If your power value is True you can use it, if its value is False go to the city where you can buy it for a certain amount of gold."
+        "|  Choose better and better but more expensive characters.                                               |"
     )
-    print("")
-    print("-------------------          Good luck !          -------------------")
+    print(
+        "|  Explore worlds where dangerous goblins and difficult to defeat ghosts await you.                      |"
+    )
+    print(
+        "|  Kill monsters, get gold and go to the city where you can improve your character and buy powers for it |"
+    )
+    print(
+        "|  If your power value is True you can use it,                                                           |"
+    )
+    print(
+        "|  if its value is False go to the city where you can buy it for a certain amount of gold.               |"
+    )
+    print(
+        "|                                                                                                        |"
+    )
+    print(
+        "-------------------------------------          Good luck !          --------------------------------------"
+    )
     print("")
     main_game()
 print("")

@@ -56,8 +56,11 @@ class Tracker(BasicCharacter):
             elif inp == "d":
                 self.use_health_potion()
             if inp == "a":
-                return self._basic_attack
+                damage = self._basic_attack
             elif inp == "b":
-                return self._spell_book.choose_spell(self)
+                damage = self._spell_book.choose_spell(self)
+
             else:
-                print("there is no such attack")
+                print("--- There is no such attack ---")
+
+            return damage

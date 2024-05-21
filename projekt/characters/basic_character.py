@@ -1,7 +1,7 @@
 class BasicCharacter:
     def __init__(self) -> None:
         self._is_alive = True
-        self._gold = 100000
+        self._gold = 100
         self._basic_attack = 0
         self._max_hp = 0
         self._hp = 0
@@ -46,7 +46,6 @@ class BasicCharacter:
         self._hp = self._max_hp
         self._mana = self._max_mana
 
-    # ready for use by you, my dears ;)
     def stystic_modyfication_atac(self):
         self._basic_attack += 1
 

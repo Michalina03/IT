@@ -27,7 +27,7 @@ class ElemnetalSpellBook:
     def elemental_annihilation(self, chatacter):
         atac = 0
         for i in range(chatacter._mana):
-            atac = i * 4
+            atac = i * 3
         chatacter._mana = 0
         return atac
 
@@ -49,13 +49,12 @@ class ElemnetalSpellBook:
                     return self.elemental_annihilation(character)
                 elif inp == "e":
                     print("Close the book")
-                    break
+                    return 0
                 else:
                     print("This spell has not been unlocked yet or does not exist.")
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-    # ready for use by you, my dears ;
     def unlock_spels(self, character):
         while True:
             try:
@@ -66,7 +65,7 @@ class ElemnetalSpellBook:
                     f"b) -200 gold \t Lighting available? | - 70 mana | you deal from -30 to -70 hp | {self._unlocked_lighting}"
                 )
                 print(
-                    f"c) -400 gold \t Elemental annihilation available?  | - . mana | you deal . | {self._unlocked_elemental_annihilation}"
+                    f"c) -400 gold \t Elemental annihilation available?  | - all mana | you deal - 3*mana hp | {self._unlocked_elemental_annihilation}"
                 )
                 print(f"e \t Close the book")
                 inp = input().lower()
@@ -81,12 +80,14 @@ class ElemnetalSpellBook:
                     and not self._unlocked_lighting
                     and character._gold >= 200
                 ):
+                    character._gold -= 200
                     self._unlocked_lighting = True
                 elif (
                     inp == "c"
                     and not self._unlocked_elemental_annihilation
                     and character._gold >= 400
                 ):
+                    character._gold -= 400
                     self._unlocked_elemental_annihilation = True
                 elif inp == "e":
                     print("You don't have enough gold")
