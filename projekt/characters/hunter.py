@@ -1,8 +1,8 @@
 from characters.basic_character import BasicCharacter
-from characters.trapers_kit.trapers_kit import TrapersKit
+from characters.hunter_kit.hunter_kit import HunterKit
 
 
-class Tracker(BasicCharacter):
+class Hunter(BasicCharacter):
     def __init__(self) -> None:
         super().__init__()
         self._basic_attack += 10
@@ -15,7 +15,7 @@ class Tracker(BasicCharacter):
         self._health_potion = 0
         self._mana_potion = 0
         # --------------------------
-        self._spell_book = TrapersKit()
+        self._spell_book = HunterKit()
         self._equipment = []
 
     def inf(self):

@@ -1,8 +1,8 @@
 from characters.mage import Mage
 from characters.warrior import Warrior
 from characters.ninja import Ninja
-from characters.tracker import Tracker
-from characters.gunslinger import Gunslinger
+from characters.hunter import Hunter
+from characters.monk import Monk
 from characters.goblin import Goglin
 from characters.skeleton import Skeleton
 from characters.revenant import Revenant
@@ -11,15 +11,15 @@ from characters.ghost import Ghost
 from city.mage_shop import MageShop
 from city.warrior_shop import WarriorShop
 from city.ninja_shop import NinjaShop
-from city.tracker_shop import TrackerShop
-from city.guslinger_shop import GuslingerShop
+from city.hunter_shop import HunterShop
+from city.monk_shop import MonkShop
 from game_events.boss import Boss
 import os
 
 # =======================================================================
 
 
-def one_on_one_fight(hero: Mage | Warrior | Ninja | Tracker | Gunslinger, enemy):
+def one_on_one_fight(hero: Mage | Warrior | Ninja | Hunter | Monk, enemy):
     if enemy == "a":
         opponent = Goglin()
     elif enemy == "b":
@@ -53,10 +53,10 @@ def chose_shop(my_hero):
             shop = WarriorShop()
         elif isinstance(my_hero, Ninja):
             shop = NinjaShop()
-        elif isinstance(my_hero, Tracker):
-            shop = TrackerShop()
-        elif isinstance(my_hero, Gunslinger):
-            shop = GuslingerShop()
+        elif isinstance(my_hero, Hunter):
+            shop = HunterShop()
+        elif isinstance(my_hero, Monk):
+            shop = MonkShop()
         return shop
     except UnboundLocalError:
         print("--- Check korekt option ---")
@@ -67,8 +67,8 @@ def chose_class():
     print(" a - magician ")  # hp: 100 mana: 500
     print(" b - warrior")  # hp: 125 mana: 700
     print(" c - ninja")  # hp: 150 mana: 1000
-    print(" d - tracker")  # hp: 175 mana: 1250
-    print(" e - gunslinger")  # hp: 200 mana: 1500
+    print(" d - hunter")  # hp: 175 mana: 1250
+    print(" e - monk")  # hp: 200 mana: 1500
 
     inp = input().lower()
     try:
@@ -79,9 +79,9 @@ def chose_class():
         elif inp == "c":
             my_hero = Ninja()
         elif inp == "d":
-            my_hero = Tracker()
+            my_hero = Hunter()
         elif inp == "e":
-            my_hero = Gunslinger()
+            my_hero = Monk()
         return my_hero
     except UnboundLocalError:
         print("--- Check korekt option ---")
@@ -112,7 +112,7 @@ def main_game():
             "e - go to the haunted house"
         )  # ghost: hp: 200 mana: 160 drop: 200-400 attack: 40-100
         print("f - city")
-        print("g - level up! ( 10000 gold )")
+        print("g - change class ( 10000 gold )")
         print("h - BOSS !!! ")
         print("r - rest")
         print("x - exit")

@@ -6,8 +6,8 @@ class MagicSword:
 
     def __init__(self) -> None:
         self._unlocked_astral_slash = True
-        self._unlocked_poison_arrow = False
-        self._unlocked_meteor_strike = False
+        self._unlocked_shield_bash = False
+        self._unlocked_battle_fury = False
 
     def astral_slash(self, character):
         if character._mana >= 70:
@@ -17,49 +17,49 @@ class MagicSword:
             print("There wasn't enough mana to complete the attack")
             return 0
 
-    def poison_arrow(self, character):
+    def shield_bash(self, character):
         if character._mana >= 40:
             character._mana -= 40
             base_damage = 40
-            poison_damage = 5
-            poison_duration = 4
+            shield_damage = 5
+            shield_duration = 4
             print(
-                f"Poison Arrow deals {base_damage} damage and poisons the enemy for {poison_damage} damage over {poison_duration} turns."
+                f"Battle fury deals {base_damage} damage and poisons the enemy for {shield_damage} damage over {shield_duration} turns."
             )
             return base_damage
         else:
             print("There wasn't enough mana to complete the spell")
             return
 
-    def meteor_strike(self, character):
+    def battle_fury(self, character):
         if character._mana >= 90:
             character._mana -= 90
             base_damage = random.randint(50, 100)
-            splash_damage = base_damage // 2
+            fury_damage = base_damage // 2
             print(
-                f"Meteor Strike deals {base_damage} damage to the main target and {splash_damage} splash damage to nearby enemies."
+                f"Shield bash deals {base_damage} damage to the main target and {fury_damage} splash damage to nearby enemies."
             )
             return base_damage
         else:
             print("There wasn't enough mana to complete the spell")
             return 0
 
-    def choose_spell(self, character):
+    def choose_spels(self, character):
         while True:
             try:
                 print(f"a) \t Astral slash available? {self._unlocked_astral_slash}")
-                print(f"b) \t Poison arrow available? {self._unlocked_poison_arrow}")
-                print(f"c) \t Meteor strike available? {self._unlocked_meteor_strike}")
+                print(f"b) \t Shield bash available? {self._unlocked_shield_bash}")
+                print(f"c) \t  available? {self._unlocked_battle_fury}")
                 print(f"e \t Close the sword")
                 inp = input().lower()
                 if inp == "a" and self._unlocked_astral_slash:
                     return self.astral_slash(character)
-                elif inp == "b" and self._unlocked_poison_arrow:
-                    return self.poison_arrow(character)
-                elif inp == "c" and self._unlocked_meteor_strike:
-                    return self.meteor_strike(character)
+                elif inp == "b" and self._unlocked_shield_bash:
+                    return self.shield_bash(character)
+                elif inp == "c" and self._unlocked_battle_fury:
+                    return self.battle_fury(character)
                 elif inp == "e":
-                    print("Close the book")
+                    print("Close the sword")
                     return 0
                 else:
                     print("This spell has not been unlocked yet or does not exist.")
@@ -73,10 +73,10 @@ class MagicSword:
                     f"a) free spell! \t Astral slash available? | - 70 mana | you deal - 30 hp | {self._unlocked_astral_slash}"
                 )
                 print(
-                    f"b) -350 gold \t Poison arrow available? | - 40 mana | you deal - 40 hp + poison | {self._unlocked_poison_arrow}"
+                    f"b) -350 gold \t Shield bash available? | - 40 mana | you deal - 40 hp + poison | {self._unlocked_shield_bash}"
                 )
                 print(
-                    f"c) -500 gold \t Meteor strike available? | - 90 mana | you deal - 50 to - 100 hp + splash | {self._unlocked_meteor_strike}"
+                    f"c) -500 gold \t Battle fury available? | - 90 mana | you deal - 50 to - 100 hp + splash | {self._unlocked_battle_fury}"
                 )
                 print(f"e \t Close the sword")
                 inp = input().lower()
@@ -89,18 +89,18 @@ class MagicSword:
                     self._unlocked_astral_slash = True
                 elif (
                     inp == "b"
-                    and not self._unlocked_poison_arrow
+                    and not self._unlocked_shield_bash
                     and character._gold >= 350
                 ):
                     character._gold -= 350
-                    self._unlocked_poison_arrow = True
+                    self._unlocked_shield_bash = True
                 elif (
                     inp == "c"
-                    and not self._unlocked_meteor_strike
+                    and not self._unlocked_battle_fury
                     and character._gold >= 500
                 ):
                     character._gold -= 500
-                    self._unlocked_meteor_strike = True
+                    self._unlocked_battle_fury = True
                 elif inp == "e":
                     print("You don't have enough gold")
                     break

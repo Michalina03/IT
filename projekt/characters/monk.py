@@ -1,8 +1,8 @@
 from characters.basic_character import BasicCharacter
-from characters.quick_blade.quick_blade import QuickBlade
+from characters.strength_mind.strength_mind import StrengthMind
 
 
-class Gunslinger(BasicCharacter):
+class Monk(BasicCharacter):
     def __init__(self) -> None:
         super().__init__()
         self._basic_attack += 10
@@ -15,7 +15,7 @@ class Gunslinger(BasicCharacter):
         self._health_potion = 0
         self._mana_potion = 0
         # --------------------------
-        self._spell_book = QuickBlade()
+        self._spell_book = StrengthMind()
         self._equipment = []
 
     def inf(self):
@@ -44,7 +44,7 @@ class Gunslinger(BasicCharacter):
         while True:
             self.inf()
             print("a - basic_attack ( - 10 hp )")
-            print("b - open QuickBlade")
+            print("b - open StrengthMind")
             print("c - use mana potion")
             print("d - use health potion")
             damage = 0
@@ -58,7 +58,7 @@ class Gunslinger(BasicCharacter):
             if inp == "a":
                 damage = self._basic_attack
             elif inp == "b":
-                damage = self._spell_book.choose_spell(self)
+                damage = self._spell_book.choose_spels(self)
 
             else:
                 print("--- There is no such attack ---")
