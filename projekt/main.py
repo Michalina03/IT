@@ -18,6 +18,14 @@ import os
 
 # =======================================================================
 
+unlocked_characters = {
+    "mage": True,
+    "warrior": False,
+    "ninja": False,
+    "hunter": False,
+    "monk": False,
+}
+
 
 def one_on_one_fight(hero: Mage | Warrior | Ninja | Hunter | Monk, enemy):
     if enemy == "a":
@@ -64,27 +72,79 @@ def chose_shop(my_hero):
 
 def chose_class():
     print("=====  Select a Character Class  =====")
-    print(" a - magician ")  # hp: 100 mana: 500
-    print(" b - warrior")  # hp: 125 mana: 700
-    print(" c - ninja")  # hp: 150 mana: 1000
-    print(" d - hunter")  # hp: 175 mana: 1250
-    print(" e - monk")  # hp: 200 mana: 1500
+    if unlocked_characters["mage"]:
+        print(" a - mage ")
+    if unlocked_characters["warrior"]:
+        print(" b - warrior")
+    if unlocked_characters["ninja"]:
+        print(" c - ninja")
+    if unlocked_characters["hunter"]:
+        print(" d - hunter")
+    if unlocked_characters["monk"]:
+        print(" e - monk")
 
     inp = input().lower()
     try:
-        if inp == "a":
+        if inp == "a" and unlocked_characters["mage"]:
             my_hero = Mage()
-        elif inp == "b":
+        elif inp == "b" and unlocked_characters["warrior"]:
             my_hero = Warrior()
-        elif inp == "c":
+        elif inp == "c" and unlocked_characters["ninja"]:
             my_hero = Ninja()
-        elif inp == "d":
+        elif inp == "d" and unlocked_characters["hunter"]:
             my_hero = Hunter()
-        elif inp == "e":
+        elif inp == "e" and unlocked_characters["monk"]:
             my_hero = Monk()
+        else:
+            print("Character is not available or invalid option. Try again.")
+            return chose_class()
         return my_hero
     except UnboundLocalError:
-        print("--- Check korekt option ---")
+        print("--- Check correct option ---")
+        return chose_class()
+
+
+def unlock_character(my_hero):
+    print("=====  Unlock a Character Class  =====")
+    print(" b - warrior (500 gold)")
+    print(" c - ninja (1000 gold)")
+    print(" d - hunter (1500 gold)")
+    print(" e - monk (2000 gold)")
+
+    inp = input().lower()
+    try:
+        if inp == "b" and not unlocked_characters["warrior"]:
+            if my_hero._gold >= 500:
+                my_hero._gold -= 500
+                unlocked_characters["warrior"] = True
+                print("Warrior has been unlocked!")
+            else:
+                print("You don't have enough gold.")
+        elif inp == "c" and not unlocked_characters["ninja"]:
+            if my_hero._gold >= 1000:
+                my_hero._gold -= 1000
+                unlocked_characters["ninja"] = True
+                print("Ninja has been unlocked!")
+            else:
+                print("You don't have enough gold.")
+        elif inp == "d" and not unlocked_characters["hunter"]:
+            if my_hero._gold >= 1500:
+                my_hero._gold -= 1500
+                unlocked_characters["hunter"] = True
+                print("Hunter has been unlocked!")
+            else:
+                print("You don't have enough gold.")
+        elif inp == "e" and not unlocked_characters["monk"]:
+            if my_hero._gold >= 2000:
+                my_hero._gold -= 2000
+                unlocked_characters["monk"] = True
+                print("Monk has been unlocked!")
+            else:
+                print("You don't have enough gold.")
+        else:
+            print("Character is already unlocked or invalid option. Try again.")
+    except UnboundLocalError:
+        print("--- Check correct option ---")
 
 
 def main_game():
@@ -112,7 +172,7 @@ def main_game():
             "e - go to the haunted house"
         )  # ghost: hp: 200 mana: 160 drop: 200-400 attack: 40-100
         print("f - city")
-        print("g - change class ( 10000 gold )")
+        print("g - choose a new hero")
         print("h - BOSS !!! ")
         print("r - rest")
         print("x - exit")
@@ -130,17 +190,19 @@ def main_game():
         ):
             one_on_one_fight(my_hero, inp)
         elif "f" == inp:
-            shop.choose_modification(my_hero)
+            print("a - buy spells, hp, mana and potion")
+            print("b - buy a new hero !!!!")
+            inp2 = input().lower()
+            if inp2 == "a":
+                shop.choose_modification(my_hero)
+            elif inp2 == "b":
+                unlock_character(my_hero)
         elif "r" == inp:
             my_hero.total_rest()
             day += 1
         elif "g" == inp:
-            if my_hero._gold >= 10000:
-                my_hero._gold -= 10000
-                my_hero = chose_class()
-                shop = chose_shop(my_hero)
-            else:
-                print("---- Not enough gold ----")
+            my_hero = chose_class()
+            shop = chose_shop(my_hero)
         elif "x" == inp:
             print("------ The program has ended ------")
             my_hero.is_alive = False
