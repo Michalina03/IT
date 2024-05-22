@@ -14,6 +14,7 @@ from city.ninja_shop import NinjaShop
 from city.hunter_shop import HunterShop
 from city.monk_shop import MonkShop
 from game_events.boss import Boss
+from mission.mission import maze_game
 import os
 
 # =======================================================================
@@ -175,6 +176,7 @@ def main_game():
         print("f - city")
         print("g - choose a new hero")
         print("h - BOSS !!! ")
+        print("i - mission")
         print("r - rest")
         print("x - exit")
         my_hero.inf()
@@ -204,6 +206,8 @@ def main_game():
         elif "g" == inp:
             my_hero = chose_class()
             shop = chose_shop(my_hero)
+        elif "i" == inp:
+            maze_game(my_hero)
         elif "x" == inp:
             print("------ The program has ended ------")
             my_hero.is_alive = False
