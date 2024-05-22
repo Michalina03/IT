@@ -27,7 +27,7 @@ class NinjaShop(BasicShop):
                     character._gold -= 50
                     character._max_mana += self.add_mana
                 elif inp == "c":
-                    character._spell_book.unlock_spels(character)
+                    character._spell_book.unlock_spells(character)
                 elif inp == "d" and character._gold > 200:
                     character._gold -= 200
                     character._mana_potion += 1

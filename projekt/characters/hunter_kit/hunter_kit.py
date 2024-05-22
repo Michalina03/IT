@@ -20,7 +20,7 @@ class HunterKit:
     def deadly_accuracy(self, character):
         if character._mana >= 100:
             character._mana -= 100
-            return randint(70)
+            return 70
         else:
             print("There wasn't enough mana to complete the power")
             return 0
@@ -60,7 +60,7 @@ class HunterKit:
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-    def unlock_spels(self, character):
+    def unlock_spells(self, character):
         while True:
             try:
                 print(

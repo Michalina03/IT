@@ -44,7 +44,7 @@ class Hunter(BasicCharacter):
         while True:
             self.inf()
             print("a - basic_attack ( - 10 hp )")
-            print("b - open TrapersKit")
+            print("b - open HunterKit")
             print("c - use mana potion")
             print("d - use health potion")
             damage = 0

@@ -58,7 +58,7 @@ class Monk(BasicCharacter):
             if inp == "a":
                 damage = self._basic_attack
             elif inp == "b":
-                damage = self._spell_book.choose_spels(self)
+                damage = self._spell_book.choose_spell(self)
 
             else:
                 print("--- There is no such attack ---")

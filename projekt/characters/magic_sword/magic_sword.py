@@ -24,11 +24,11 @@ class MagicSword:
             shield_damage = 5
             shield_duration = 4
             print(
-                f"Battle fury deals {base_damage} damage and poisons the enemy for {shield_damage} damage over {shield_duration} turns."
+                f"Shield bash deals {base_damage} damage and poisons the enemy for {shield_damage} damage over {shield_duration} turns."
             )
             return base_damage
         else:
-            print("There wasn't enough mana to complete the spell")
+            print("There wasn't enough mana to complete the attack")
             return
 
     def battle_fury(self, character):
@@ -37,11 +37,11 @@ class MagicSword:
             base_damage = random.randint(50, 100)
             fury_damage = base_damage // 2
             print(
-                f"Shield bash deals {base_damage} damage to the main target and {fury_damage} splash damage to nearby enemies."
+                f"Battle fury deals {base_damage} damage to the main target and {fury_damage} splash damage to nearby enemies."
             )
             return base_damage
         else:
-            print("There wasn't enough mana to complete the spell")
+            print("There wasn't enough mana to complete the attack")
             return 0
 
     def choose_spels(self, character):
@@ -49,7 +49,7 @@ class MagicSword:
             try:
                 print(f"a) \t Astral slash available? {self._unlocked_astral_slash}")
                 print(f"b) \t Shield bash available? {self._unlocked_shield_bash}")
-                print(f"c) \t  available? {self._unlocked_battle_fury}")
+                print(f"c) \t Battle fury available? {self._unlocked_battle_fury}")
                 print(f"e \t Close the sword")
                 inp = input().lower()
                 if inp == "a" and self._unlocked_astral_slash:
@@ -62,11 +62,11 @@ class MagicSword:
                     print("Close the sword")
                     return 0
                 else:
-                    print("This spell has not been unlocked yet or does not exist.")
+                    print("This attack has not been unlocked yet or does not exist.")
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-    def unlock_spels(self, character):
+    def unlock_spells(self, character):
         while True:
             try:
                 print(

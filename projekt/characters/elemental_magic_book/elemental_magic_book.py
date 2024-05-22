@@ -55,7 +55,7 @@ class ElemnetalSpellBook:
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-    def unlock_spels(self, character):
+    def unlock_spells(self, character):
         while True:
             try:
                 print(

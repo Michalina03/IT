@@ -27,7 +27,7 @@ class NinjutsuTechniques:
             )
             return 50
         else:
-            print("There wasn't enough mana to complete the spell")
+            print("There wasn't enough mana to complete the attack")
             return 0
 
     def hidden_strike(self, character):
@@ -41,7 +41,7 @@ class NinjutsuTechniques:
             )
             return 55
         else:
-            print("There wasn't enough mana to complete the spell")
+            print("There wasn't enough mana to complete the attack")
             return 0
 
     def choose_spell(self, character):
@@ -49,7 +49,7 @@ class NinjutsuTechniques:
             try:
                 print(f"a \t Mistral strike available? {self._unlocked_mistral_strike}")
                 print(f"b \t Backstab available? {self._unlocked_backstab}")
-                print(f"c \t  Hidden strike available? {self._unlocked_hidden_strike}")
+                print(f"c \t Hidden strike available? {self._unlocked_hidden_strike}")
                 print(f"e \t Close the techniques")
                 inp = input().lower()
                 if inp == "a" and self._unlocked_mistral_strike:
@@ -62,11 +62,11 @@ class NinjutsuTechniques:
                     print("Close the techniques")
                     return 0
                 else:
-                    print("This spell has not been unlocked yet or does not exist.")
+                    print("This attack has not been unlocked yet or does not exist.")
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-    def unlock_spels(self, character):
+    def unlock_spells(self, character):
         while True:
             try:
                 print(
