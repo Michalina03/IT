@@ -18,12 +18,13 @@ import os
 
 # =======================================================================
 
+selected_characters = ["Mage"]
 unlocked_characters = {
-    "mage": True,
-    "warrior": False,
-    "ninja": False,
-    "hunter": False,
-    "monk": False,
+    "Mage": True,
+    "Warrior": False,
+    "Ninja": False,
+    "Hunter": False,
+    "Monk": False,
 }
 
 
@@ -72,28 +73,28 @@ def chose_shop(my_hero):
 
 def chose_class():
     print("=====  Select a Character Class  =====")
-    if unlocked_characters["mage"]:
+    if unlocked_characters["Mage"]:
         print(" a - mage ")
-    if unlocked_characters["warrior"]:
+    if unlocked_characters["Warrior"]:
         print(" b - warrior")
-    if unlocked_characters["ninja"]:
+    if unlocked_characters["Ninja"]:
         print(" c - ninja")
-    if unlocked_characters["hunter"]:
+    if unlocked_characters["Hunter"]:
         print(" d - hunter")
-    if unlocked_characters["monk"]:
+    if unlocked_characters["Monk"]:
         print(" e - monk")
 
     inp = input().lower()
     try:
-        if inp == "a" and unlocked_characters["mage"]:
+        if inp == "a" and unlocked_characters["Mage"]:
             my_hero = Mage()
-        elif inp == "b" and unlocked_characters["warrior"]:
+        elif inp == "b" and unlocked_characters["Warrior"]:
             my_hero = Warrior()
-        elif inp == "c" and unlocked_characters["ninja"]:
+        elif inp == "c" and unlocked_characters["Ninja"]:
             my_hero = Ninja()
-        elif inp == "d" and unlocked_characters["hunter"]:
+        elif inp == "d" and unlocked_characters["Hunter"]:
             my_hero = Hunter()
-        elif inp == "e" and unlocked_characters["monk"]:
+        elif inp == "e" and unlocked_characters["Monk"]:
             my_hero = Monk()
         else:
             print("Character is not available or invalid option. Try again.")
@@ -113,31 +114,31 @@ def unlock_character(my_hero):
 
     inp = input().lower()
     try:
-        if inp == "b" and not unlocked_characters["warrior"]:
+        if inp == "b" and not unlocked_characters["Warrior"]:
             if my_hero._gold >= 500:
                 my_hero._gold -= 500
-                unlocked_characters["warrior"] = True
+                unlocked_characters["Warrior"] = True
                 print("Warrior has been unlocked!")
             else:
                 print("You don't have enough gold.")
-        elif inp == "c" and not unlocked_characters["ninja"]:
+        elif inp == "c" and not unlocked_characters["Ninja"]:
             if my_hero._gold >= 1000:
                 my_hero._gold -= 1000
-                unlocked_characters["ninja"] = True
+                unlocked_characters["Ninja"] = True
                 print("Ninja has been unlocked!")
             else:
                 print("You don't have enough gold.")
-        elif inp == "d" and not unlocked_characters["hunter"]:
+        elif inp == "d" and not unlocked_characters["Hunter"]:
             if my_hero._gold >= 1500:
                 my_hero._gold -= 1500
-                unlocked_characters["hunter"] = True
+                unlocked_characters["Hunter"] = True
                 print("Hunter has been unlocked!")
             else:
                 print("You don't have enough gold.")
-        elif inp == "e" and not unlocked_characters["monk"]:
+        elif inp == "e" and not unlocked_characters["Monk"]:
             if my_hero._gold >= 2000:
                 my_hero._gold -= 2000
-                unlocked_characters["monk"] = True
+                unlocked_characters["Monk"] = True
                 print("Monk has been unlocked!")
             else:
                 print("You don't have enough gold.")
