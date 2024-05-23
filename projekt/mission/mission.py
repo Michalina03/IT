@@ -2,33 +2,27 @@ import random
 from characters.basic_character import BasicCharacter
 
 
-# Generating the maze
 def generate_maze(size):
     maze = [["#" for _ in range(size)] for _ in range(size)]
 
-    # Placing the player at the top left corner
     maze[0][0] = "S"
 
-    # Placing the goal at the bottom right corner
     maze[size - 1][size - 1] = "E"
 
-    # Creating obstacles
-    obstacles = int(size * size * 0.2)  # 20% of cells will be obstacles
+    obstacles = int(size * size * 0.2)
     for _ in range(obstacles):
         x = random.randint(0, size - 1)
         y = random.randint(0, size - 1)
-        maze[x][y] = "X"  # 'X' represents an obstacle
+        maze[x][y] = "X"
 
     return maze
 
 
-# Displaying the maze
 def display_maze(maze):
     for row in maze:
         print(" ".join(row))
 
 
-# Checking player's movement possibilities
 def can_move(maze, x, y):
     size = len(maze)
     if 0 <= x < size and 0 <= y < size and maze[x][y] != "X":
@@ -36,13 +30,11 @@ def can_move(maze, x, y):
     return False
 
 
-# Main game function
 def maze_game(hero):
-    size = 10  # Maze size
+    size = 10
     maze = generate_maze(size)
-    x, y = 0, 0  # Initial player position
+    x, y = 0, 0
 
-    # Ensure start and end points are present
     maze[0][0] = "S"
     maze[size - 1][size - 1] = "E"
 
